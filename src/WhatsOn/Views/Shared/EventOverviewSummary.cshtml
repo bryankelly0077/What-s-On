@@ -1,0 +1,27 @@
+﻿@model Event
+
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <img src="@Model.ImageThumbnailUrl" alt="">
+        <div class="caption">
+
+            <!--took a line out here for price. Looking for a decimal Price variable-->
+            <h3 style="margin-top:10px">
+                <a asp-controller="Event"
+                   asp-action="Details"
+                   asp-route-id="@Model.EventId">@Model.Title</a>
+            </h3>
+            <h3 class="pull-left" style="margin-top:0px; margin-bottom:5px">@Model.StartDateTime</h3>
+            <br />
+            <br />
+            
+            <p style="margin-top:0px;">@Model.EventDescription</p>
+        </div>
+        <div class="addToEventList">
+            <p class="button" style="margin-bottom:0px;">
+                <a class="btn btn-primary btn-block" asp-controller="MyEvent" asp-action="AddToMyEvent"
+                   asp-route-eventId="@Model.EventId">Add to EventList</a>
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+﻿@model MyEventViewModel
+
+@if (Model.MyEvent.MyEventItems.Count > 0)
+{
+    <li>
+        <a>
+            <span class="glyphicon glyphicon-calendar"></span>
+            <span id="eventList-status">
+                @Model.MyEvent.MyEventItems.Count
+            </span>
+        </a>
+    </li>
+}

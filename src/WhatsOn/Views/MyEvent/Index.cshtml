@@ -1,0 +1,25 @@
+﻿@model MyEventViewModel
+
+<h2>My Events list</h2>
+<h4>Here are the Events added to your EventsList</h4>
+<table class="table table-bordered table-striped">
+    <thead>
+        <!--Create table to display the amount,name,price and subtotal-->
+        <tr>
+            <th>Event Title</th>
+            <th class="text-right"> Date/Time</th>
+        </tr>
+    </thead>
+    <!--loop over each item add a row to the table to display-->
+    <tbody>
+        @foreach (var line in Model.MyEvent.MyEventItems)
+        {
+            <tr>                
+                <td class="text-left">@line.Event.Title</td>
+                <td class="text-right">@line.Event.StartDateTime</td>
+            </tr>
+        }
+    </tbody>
+</table>
+  
+

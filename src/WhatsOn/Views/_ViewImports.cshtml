@@ -1,0 +1,6 @@
+﻿@using WhatsOn.Models
+@using WhatsOn.ViewModels
+<!--Pass the TagHelpers you want to use for email. Use a wildcard charachter * to say that all TagHelpers within this TagHelper namespace
+    should be known automatically in my views. The second parameter WhatsOn points to the assembly that contains the TagHelper -->
+@addTagHelper WhatsOn.TagHelpers.*, WhatsOn
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
