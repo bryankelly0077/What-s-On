@@ -119,12 +119,6 @@ namespace WhatsOn.Models
             //Return a new MyEvent which contains the AppDbContext and the MyEventId declared in this class above
             return new MyEvent(context) { MyEventId = eventListId };
         }
-
-        /*public decimal GetShoppingCartTotal()
-        {
-            var total = _appDbContext.MyEventItems.Where(c => c.MyEventId == MyEventId)
-                .Select(c => c.Event.Price * c.Amount).Sum();
-            return total;
-        }*/
+        
     }
 }

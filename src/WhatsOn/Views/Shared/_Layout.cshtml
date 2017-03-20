@@ -24,8 +24,10 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
+                    <!--Add the home link with tag helpers anchor tag pointing to the index action on the home controller-->
                     <li><a asp-controller="Home" asp-action="Index">Home</a></li>
                     @await Component.InvokeAsync("CategoryMenu")
+                    <!--Add the cotact link with tag helper anchor tag pointing to the index action on the contact controller-->
                     <li><a asp-controller="Contact" asp-action="Index">Contact us</a></li>
                     @await Component.InvokeAsync("MyEventSummary")
                 </ul>

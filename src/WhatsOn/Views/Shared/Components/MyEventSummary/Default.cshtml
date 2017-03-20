@@ -1,9 +1,11 @@
 ﻿@model MyEventViewModel
 
+<!--Check if there are events in the list.If there are return the html to the page-->
 @if (Model.MyEvent.MyEventItems.Count > 0)
 {
     <li>
         <a>
+            <!--display this on every page so add this view component to the layout view-->
             <span class="glyphicon glyphicon-calendar"></span>
             <span id="eventList-status">
                 @Model.MyEvent.MyEventItems.Count

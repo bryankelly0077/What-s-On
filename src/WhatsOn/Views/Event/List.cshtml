@@ -1,9 +1,12 @@
-﻿@model EventsListViewModel
+﻿<!--Specify that the type Im using in the view is EventsListViewModel. Already specified the namepace in the
+    ViewImports file-->
+@model EventsListViewModel
 
 <h1>@Model.CurrentCategory</h1>
 <!--razor. Points to the view which this model is bound to i.e Events -->
 @foreach (var events in Model.Events)
 {
+    <!--Html helper.Specify the name of the partial view followed by the object we want to pass to the partial view-->
     @Html.Partial("EventOverviewSummary", events)
 }
 

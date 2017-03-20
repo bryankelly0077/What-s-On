@@ -1,12 +1,14 @@
-﻿@model Event
+﻿<!--display the event image and details in the box-->
+<!--Specify that the type Im using in the partial view is Event. Already specified the namepace in the 
+    ViewImports file-->
+@model Event
 
 <div class="col-sm-4 col-lg-4 col-md-4">
     <div class="thumbnail">
         <img src="@Model.ImageThumbnailUrl" alt="">
         <div class="caption">
-
-            <!--took a line out here for price. Looking for a decimal Price variable-->
             <h3 style="margin-top:10px">
+                <!--asp controller taghelper-->
                 <a asp-controller="Event"
                    asp-action="Details"
                    asp-route-id="@Model.EventId">@Model.Title</a>
@@ -17,9 +19,11 @@
             
             <p style="margin-top:0px;">@Model.EventDescription</p>
         </div>
+        <!--Anchor tag Points to the addToEventList method which takes EventId parameter in the MyEvent class-->
+        <!--pass in the EventId parameter.-->
         <div class="addToEventList">
             <p class="button" style="margin-bottom:0px;">
-                <a class="btn btn-primary btn-block" asp-controller="MyEvent" asp-action="AddToMyEvent"
+                 <a class="btn btn-primary btn-block" asp-controller="MyEvent" asp-action="AddToMyEvent"
                    asp-route-eventId="@Model.EventId">Add to EventList</a>
             </p>
         </div>

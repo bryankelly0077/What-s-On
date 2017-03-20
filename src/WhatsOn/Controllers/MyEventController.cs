@@ -20,6 +20,7 @@ namespace WhatsOn.Controllers
             _eventRepository = eventRepository;
             _myEvent = myEvent;
         }
+        //Index action method
         public ViewResult Index()
         {
             //call GetMyEventItems() in MyEvent class. This method checks if you already have the 

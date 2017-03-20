@@ -22,23 +22,26 @@ namespace WhatsOn.Controllers
             _categoryRepository = categoryRepository;
         }
 
+
+        //list method accepts a category parameter from the MapRoute
         public ViewResult List(string category)
         {
             IEnumerable<Event> events;
             string currentCategory = string.Empty;
-
+            //if the passed in category is null or empty return all events
             if (string.IsNullOrEmpty(category))
             {
                 events = _eventRepository.Events.OrderBy(p => p.EventId);
                 currentCategory = "All events";
             }
+            //if not, filter the events that have the category that was passed in
             else
             {
                 events = _eventRepository.Events.Where(p => p.Category.CategoryName == category)
                    .OrderBy(p => p.EventId);
                 currentCategory = _categoryRepository.Categories.FirstOrDefault(c => c.CategoryName == category).CategoryName;
             }
-
+            //return the data in EventsListViewModel
             return View(new EventsListViewModel
             {
                 Events = events,
@@ -47,6 +50,9 @@ namespace WhatsOn.Controllers
         }
     }
 }
+
+
+
 /*
 //Action method List
 public ViewResult List()
@@ -54,7 +60,7 @@ public ViewResult List()
     EventsListViewModel eventsListViewModel = new EventsListViewModel();
     eventsListViewModel.Events = _eventRepository.Events;
 
-    //eventsListViewModel.CurrentCategory = "Comedy";
+    //eventsListViewModel.CurrentCategory = "Tours";
 
     //View to show
     //return View(_eventRepository.Events);
