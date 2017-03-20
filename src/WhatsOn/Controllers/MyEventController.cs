@@ -31,7 +31,6 @@ namespace WhatsOn.Controllers
             var myEventViewModel = new MyEventViewModel
             {
                 MyEvent = _myEvent
-                //MyEventTotal = _myEvent.GetMyEventTotal()
             };
 
             return View(myEventViewModel);

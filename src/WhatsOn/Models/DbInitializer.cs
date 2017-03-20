@@ -36,7 +36,9 @@ namespace WhatsOn.Models
             context.SaveChanges();
         }
         //initial list of categories
+        //Dictionary in C# is a collection of Keys and Values
         private static Dictionary<string, Category> categories;
+
         public static Dictionary<string, Category> Categories
         {
             get

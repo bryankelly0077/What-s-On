@@ -15,9 +15,11 @@ namespace WhatsOn.Models
 
         }
         //dbset for the current model classes
+        //access point for values in events table
         public DbSet<Event> Events { get; set; }
+        //access point for values in Categories table
         public DbSet<Category> Categories { get; set; }
-
+        //access point for values in myeventItem table
         public DbSet<MyEventItem> MyEventItems { get; set; }
     }
 }

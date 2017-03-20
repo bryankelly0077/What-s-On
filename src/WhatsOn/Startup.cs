@@ -16,11 +16,10 @@ namespace WhatsOn
 {
     public class Startup
     {
-        //create IConfigurationRoot instance. represents the enrty point to the
-        //configuration data
+        //create IConfigurationRoot instance. represents the enrty point to the configuration data
         private IConfigurationRoot _configurationRoot;
         //constructor with hostingEnvironment parameter.
-        //hostingEnvironment gives information about where the app is running
+        //hostingEnvironment gives information about where the application is running
         public Startup(IHostingEnvironment hostingEnvironment)
         {
             //instantiate ConfigurationBuilder instance
@@ -29,7 +28,8 @@ namespace WhatsOn
                .SetBasePath(hostingEnvironment.ContentRootPath)
                //point it to the json file that contains the app settings
                .AddJsonFile("appsettings.json")
-               //.AddJsonFile($"appsettings.{hostingEnvironment.EnvironmentName}.json", true)
+               //pass it the configuration using the build method. This results in a value per collection 
+               //from appDbConext(Events,Categories,MyEventItems) and the connection string from appsettings
                .Build();
         }
         // This method gets called by the runtime. Use this method to add services to the container.
