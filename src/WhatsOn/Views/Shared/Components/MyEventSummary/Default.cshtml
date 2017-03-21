@@ -1,10 +1,11 @@
-﻿@model MyEventViewModel
+﻿<!--Glyph icon-->
+@model MyEventViewModel
 
 <!--Check if there are events in the list.If there are return the html to the page-->
-@if (Model.MyEvent.MyEventItems.Count > 0)
+@if (Model.MyEvent.MyEventItems.Count > 0 && User.Identity.IsAuthenticated)
 {
     <li>
-        <a>
+        <a asp-controller="MyEvent" asp-action="AddToMyEvent">
             <!--display this on every page so add this view component to the layout view-->
             <span class="glyphicon glyphicon-calendar"></span>
             <span id="eventList-status">

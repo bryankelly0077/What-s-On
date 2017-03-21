@@ -1,4 +1,6 @@
-﻿@model LoginViewModel
+﻿<!--View for login page-->
+
+@model LoginViewModel
 
 <h2>Please log in before adding an event to your list.</h2>
 
@@ -28,6 +30,8 @@
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-primary" value="Log in" />
         </div>
+
     </div>
 
 </form>
+<a id="registerLink" asp-controller="Account" asp-action="Register"> Please register before logging in</a>

@@ -1,13 +1,21 @@
-﻿@model Event
+﻿<!--display the event image and details in the box-->
+<!--Specify that the type Im using in the partial view is Event. Already specified the namepace in the
+    ViewImports file-->
+
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+
+@model Event
+
+@inject SignInManager<IdentityUser> SignInManager
 
 <div class="col-sm-4 col-lg-4 col-md-4">
     <div class="thumbnail">
         <img src="@Model.ImageThumbnailUrl" alt="">
         <div class="caption">
             <h3 style="margin-top:10px">
-                <a asp-controller="Event"
-                   asp-action="Details"
-                   asp-route-id="@Model.EventId">@Model.Title</a>
+                <!--asp controller taghelper-->
+                <a>@Model.Title</a>
             </h3>
             <h3 class="pull-left" style="margin-top:0px; margin-bottom:5px">@Model.StartDateTime</h3>
             <br />
@@ -15,11 +23,27 @@
 
             <p style="margin-top:0px;">@Model.EventDescription</p>
         </div>
-        <div class="addToEventList">
-            <p class="button">
-                <a class="btn btn-primary btn-block" asp-controller="MyEvent" asp-action="AddToMyEvent"
-                   asp-route-eventId="@Model.EventId">Add to EventList</a>
-            </p>
-        </div>
+        <!--Anchor tag Points to the addToEventList method which takes EventId parameter in the MyEvent class-->
+        <!--pass in the EventId parameter.-->
+
+
+        @if (SignInManager.IsSignedIn(User))
+            {
+            <div class="addToEventList">
+                <p class="button" style="margin-bottom:0px;">
+                    <a class="btn btn-primary btn-block" asp-controller="MyEvent" asp-action="AddToMyEvent"
+                       asp-route-eventId="@Model.EventId">Add to EventList</a>
+                </p>
+            </div>
+        }
+        else
+        {
+            <div class="addToEventList">
+                <p class="button" style="margin-bottom:0px;">
+                    <a class="btn btn-primary btn-block" asp-controller="Account" asp-action="Login">Add to EventList</a>
+                </p>
+            </div>
+
+        }
     </div>
 </div>
