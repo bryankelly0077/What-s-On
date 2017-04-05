@@ -8,9 +8,10 @@ using WhatsOn.Models;
 namespace WhatsOn.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170405150947_userid")]
+    partial class userid
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -221,7 +222,9 @@ namespace WhatsOn.Migrations
 
                     b.Property<int?>("EventId");
 
-                    b.Property<string>("MyEventUserId");
+                    b.Property<string>("Id");
+
+                    b.Property<string>("MyEventId");
 
                     b.HasKey("MyEventListId");
 

@@ -19,10 +19,10 @@ namespace WhatsOn.Components
         public IViewComponentResult Invoke()
         {
             //Call GetMyEventItems to make sure items have been loaded from the database
-            var items = _myEvent.GetMyEventItems();
+            var items = _myEvent.GetMyEventLists();
             //create 2 mock items and add them to the eventsList
             //var items = new List<MyEventItem>() { new MyEventItem(), new MyEventItem() };
-            _myEvent.MyEventItems = items;
+            _myEvent.MyEventLists = items;
 
             //Create a shoppingCartViewModel pass in the shoppingcart and the total
             var myEventViewModel = new MyEventViewModel

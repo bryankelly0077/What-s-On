@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using WhatsOn.Models;
 using WhatsOn.ViewModels;
 
-namespace BethonysPieShop.Controllers
+namespace WhatsOn.Controllers
 {
     public class HomeController : Controller
     {

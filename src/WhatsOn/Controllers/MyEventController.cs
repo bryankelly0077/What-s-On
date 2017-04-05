@@ -25,8 +25,8 @@ namespace WhatsOn.Controllers
         {
             //call GetMyEventItems() in MyEvent class. This method checks if you already have the 
             //Events and if not return the from the database
-            var items = _myEvent.GetMyEventItems();
-            _myEvent.MyEventItems = items;
+            var list = _myEvent.GetMyEventLists();
+            _myEvent.MyEventLists = list;
 
             //create a new MyEventViewModel that will be returned to the view
             var myEventViewModel = new MyEventViewModel
@@ -45,17 +45,6 @@ namespace WhatsOn.Controllers
             if (selectedEvent != null)
             {
                 _myEvent.AddToEventList(selectedEvent, 1);
-            }
-            return RedirectToAction("Index");
-        }
-
-        public RedirectToActionResult RemoveFromMyEvent(int eventId)
-        {
-            var selectedEvent = _eventRepository.Events.FirstOrDefault(p => p.EventId == eventId);
-
-            if (selectedEvent != null)
-            {
-                _myEvent.RemoveFromEventList(selectedEvent);
             }
             return RedirectToAction("Index");
         }

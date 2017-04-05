@@ -52,6 +52,7 @@ namespace WhatsOn
 
             services.AddTransient<IEventRepository, EventRepository>();
             //allows you to work with the context
+            //Add Sinleton-every time we ask for a instance you get back the same instance 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //AddScoped allows you to create an object associated with a request.It's differenet between different requests
             //When you browse to the site you get an instance of the shooping cart and

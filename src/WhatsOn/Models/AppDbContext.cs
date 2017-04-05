@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using WhatsOn.ViewModels;
 
 namespace WhatsOn.Models
 {
@@ -19,7 +20,8 @@ namespace WhatsOn.Models
         public DbSet<Event> Events { get; set; }
         //access point for values in Categories table
         public DbSet<Category> Categories { get; set; }
-        //access point for values in myeventItem table
-        public DbSet<MyEventItem> MyEventItems { get; set; }
+        //access point for values in myeventlist table
+        public DbSet<MyEventList> MyEventLists { get; set; }
+        //public DbSet<LoginViewModel> LoginViewModels { get; set; }
     }
 }

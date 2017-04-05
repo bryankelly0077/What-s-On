@@ -27,7 +27,7 @@ namespace WhatsOn.Models
             }
         }
         //loads in all events and includes all categories
-        //adds a where statement to check if the pieoftheweek is true
+        //adds a where statement to check if the eventoftheweek is true
         public IEnumerable<Event> EventsOfTheWeek
         {
             get
@@ -35,7 +35,7 @@ namespace WhatsOn.Models
                 return _appDbContext.Events.Include(c => c.Category).Where(p => p.IsEventOfTheWeek);
             }
         }
-        //gets the value of pieID
+        //gets the value of eventID
         public Event GetEventById(int eventId)
         {
             return _appDbContext.Events.FirstOrDefault(p => p.EventId == eventId);

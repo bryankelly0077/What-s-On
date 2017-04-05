@@ -11,7 +11,7 @@ namespace WhatsOn.Models
         public static void Seed(IApplicationBuilder applicationBuilder)
         {
             //use the applicationBuilder in startup to get access to AppDbContext instance
-            AppDbContext context = applicationBuilder.ApplicationServices.GetRequiredService<AppDbContext>();//TODO: check music store implementation
+            AppDbContext context = applicationBuilder.ApplicationServices.GetRequiredService<AppDbContext>();
             //check if there are any categories already in the context 
             if (!context.Categories.Any())
             {
